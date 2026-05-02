@@ -11,14 +11,14 @@ def get_env_variable(var_name: str, is_required: bool = True) -> str:
     return value or ""
 
 # --- 1. API Keys ---
-GEMINI_API_KEY = get_env_variable("GOOGLE_API_KEY")
+GEMINI_API_KEY = get_env_variable("GEMINI_API_KEY")
 GROQ_API_KEY   = get_env_variable("GROQ_API_KEY")
 COHERE_API_KEY = get_env_variable("COHERE_API_KEY")
 HF_TOKEN       = get_env_variable("HF_TOKEN")
 OLLAMA_URL     = get_env_variable("OLLAMA_BASE_URL", is_required=False) or "http://localhost:11434"
 
 # --- 2. Model Names ---
-GEMINI_MODEL = "gemini-1.5-flash"
+GEMINI_MODEL = "models/gemini-flash-latest"
 GROQ_MODEL   = "llama-3.1-70b-versatile"
 COHERE_MODEL = "command-r-plus"
 HF_MODEL     = "mistralai/Mistral-7B-Instruct-v0.3"

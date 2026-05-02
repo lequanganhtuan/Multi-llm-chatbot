@@ -23,14 +23,14 @@ class BaseLLMClient(ABC):
         self.context_limit = context_limit
         
     @abstractmethod
-    def _call_api(self, system_prompt, messages):
+    def _call_api(self, system_prompt, messages: list):
         pass
     
     
-    def chat(self, messages, system_prompt=""):
+    def chat(self, system_prompt, messages):
         start_time = time.perf_counter() #start counter
         
-        for retry in range(CFG.MAX_RETRIES):
+        for retry in range(CFG.MAX_RETRIES): #retry call api to get result and return form response from API and calculate time if error raise error
             try:
                 result = self._call_api(system_prompt, messages)
                 latency = (time.perf_counter() - start_time) * 1000
@@ -48,3 +48,5 @@ class BaseLLMClient(ABC):
                     raise e
                 wait_time = (2 ** retry) 
                 time.sleep(wait_time)
+                
+    
