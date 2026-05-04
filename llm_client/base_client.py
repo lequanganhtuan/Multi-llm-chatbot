@@ -35,13 +35,13 @@ class BaseLLMClient(ABC):
                 result = self._call_api(system_prompt, messages)
                 latency = (time.perf_counter() - start_time) * 1000
                 return ChatResponse(
-                    content=result['content'],
-                    input_tokens=result['input_tokens'],
-                    output_tokens=result['output_tokens'],
-                    total_tokens=result['input_tokens'] + result['output_tokens'],
-                    latency_ms=latency,
-                    model=self.model_name,
-                    provider=self.provider
+                        content=result['content'],
+                        input_tokens=result['input_tokens'],
+                        output_tokens=result['output_tokens'],
+                        total_tokens=result['input_tokens'] + result['output_tokens'],
+                        latency_ms=latency,
+                        model=self.model_name,
+                        provider=self.provider
                     )
             except Exception as e:
                 if (retry == CFG.MAX_RETRIES - 1):

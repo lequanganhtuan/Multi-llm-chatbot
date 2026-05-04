@@ -15,20 +15,19 @@ GEMINI_API_KEY = get_env_variable("GEMINI_API_KEY")
 GROQ_API_KEY   = get_env_variable("GROQ_API_KEY")
 COHERE_API_KEY = get_env_variable("COHERE_API_KEY")
 HF_TOKEN       = get_env_variable("HF_TOKEN")
-OLLAMA_URL     = get_env_variable("OLLAMA_BASE_URL", is_required=False) or "http://localhost:11434"
 
 # --- 2. Model Names ---
 GEMINI_MODEL = "models/gemini-flash-latest"
-GROQ_MODEL   = "llama-3.1-70b-versatile"
-COHERE_MODEL = "command-r-plus"
-HF_MODEL     = "mistralai/Mistral-7B-Instruct-v0.3"
-OLLAMA_MODEL = "llama3"
+GROQ_MODEL   = "llama-3.3-70b-versatile"
+COHERE_MODEL = "command-r7b-12-2024"
+HF_MODEL     = "deepseek-ai/DeepSeek-V4-Pro"
 
 # --- 3. Context Limits (Tokens) ---
 GEMINI_CONTEXT_LIMIT = 1000000
 GROQ_CONTEXT_LIMIT   = 128000
 COHERE_CONTEXT_LIMIT = 128000
 HF_CONTEXT_LIMIT     = 32768
+MAX_TOKENS = 512
 OLLAMA_CONTEXT_LIMIT = 8192
 
 # --- 4. Conversation Settings ---
