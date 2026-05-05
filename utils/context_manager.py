@@ -24,17 +24,17 @@ class ContextManager:
         self.current_id = 1
     
     def _format_message(self, role, content , provider):
-        if provider == "Gemini":
+        if provider == CFG.GEMINI_PV:
             return {
                 "role": "model" if role == "assistant" else "user",
                 "parts": [content]
             }
-        elif provider == "Groq" or provider == "HF":
+        elif provider == CFG.GROQ_PV or provider == CFG.HF_PV:
             return {
                 "role": role,
                 "content": content
             }
-        elif provider == "Cohere":
+        elif provider == CFG.COHERE_PV:
             return {
                 "role": "CHATBOT" if role == "assistant" else "USER",
                 "message": content

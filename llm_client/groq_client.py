@@ -8,7 +8,7 @@ class GroqClient(BaseLLMClient):
         super().__init__(
             api_key = CFG.GROQ_API_KEY,
             model_name = CFG.GROQ_MODEL,
-            provider = 'Groq',
+            provider = CFG.GROQ_PV,
             context_limit = CFG.GROQ_CONTEXT_LIMIT,
         )
         

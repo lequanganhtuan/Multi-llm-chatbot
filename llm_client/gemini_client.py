@@ -8,7 +8,7 @@ class GeminiClient(BaseLLMClient):
         super().__init__(
             api_key = CFG.GEMINI_API_KEY,
             model_name = CFG.GEMINI_MODEL,
-            provider = 'google',
+            provider = CFG.GEMINI_PV,
             context_limit = CFG.GEMINI_CONTEXT_LIMIT,
         )
         

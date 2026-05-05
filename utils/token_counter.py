@@ -2,7 +2,7 @@ import config as CFG
 from transformers import AutoTokenizer
 import tiktoken
 
-class TokenCounter():
+class TokenCounter:
     def __init__(self):
         self.tokenizers = {}
     

@@ -8,7 +8,7 @@ class HFClient(BaseLLMClient):
         super().__init__(
             api_key = CFG.HF_TOKEN,
             model_name = CFG.HF_MODEL,
-            provider = 'Hugging Face Hub',
+            provider = CFG.HF_PV,
             context_limit = CFG.HF_CONTEXT_LIMIT,
         )
         

@@ -8,7 +8,7 @@ class CohereClient(BaseLLMClient):
         super().__init__(
             api_key = CFG.COHERE_API_KEY,
             model_name = CFG.COHERE_MODEL,
-            provider = 'Cohere',
+            provider = CFG.COHERE_PV,
             context_limit = CFG.COHERE_CONTEXT_LIMIT,
         )
         

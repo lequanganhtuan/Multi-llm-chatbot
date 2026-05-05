@@ -47,7 +47,13 @@ EXPORT_DIR.mkdir(exist_ok=True)
 
 
 # --- 7. Default Settings ---
-DEFAULT_PROVIDER = "gemini"
+DEFAULT_PROVIDER = "Gemini"
 DEFAULT_PERSONA = "expert"
+
+# --- 8. Provider name Settings ---
+GEMINI_PV = "Gemini"
+GROQ_PV = "Groq"
+COHERE_PV = "Cohere"
+HF_PV = "HF"
 
 print("Config loaded successfully.")
