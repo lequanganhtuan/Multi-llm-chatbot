@@ -50,9 +50,9 @@ class Logger:
             "input_tokens": response.input_tokens,
             "output_tokens": response.output_tokens,
             "total_tokens": response.input_tokens + response.output_tokens,
-            "latency": response.latency,
+            "latency": response.latency_ms,
             "cost": cost,
-            "text": response.text[:100].replace("\n", " ")
+            "text": response.content[:100].replace("\n", " ")
         }
 
         file_exists = os.path.isfile(self.filename)

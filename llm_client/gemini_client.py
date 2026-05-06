@@ -27,11 +27,15 @@ class GeminiClient(BaseLLMClient):
             
             # Format messages
             for m in messages:
+                content = m.get("content", "").strip()
+    
+                if not content:
+                    continue  
                 role = 'model' if m['role'] == 'assistant' else m['role']
                     
                 gemini_history.append({
                     "role": role,
-                    "parts": [m['content']]
+                    "parts": [content]
                 })
                 
             

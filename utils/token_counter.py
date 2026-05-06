@@ -31,17 +31,14 @@ class TokenCounter:
         total_tokens = 0
         
         for m in messages:
-            total_tokens += 4
             content = m.get("content", "")
             
             if "tiktoken" in str(type(tokenizer)):
                 num_tokens = len(tokenizer.encode(content))
             else:
                 num_tokens = len(tokenizer.encode(content, add_special_tokens=False))
-        
             total_tokens += num_tokens
             
-        total_tokens += 3    
         
         return total_tokens
     

@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-import datetime
+from datetime import datetime
 from collections import deque
 import config as CFG
 from collections import Counter
@@ -22,39 +22,22 @@ class ContextManager:
         self.sliding_window = deque(maxlen=CFG.MAX_HISTORY_TURNS)
         self.full_history = []
         self.current_id = 1
-    
-    def _format_message(self, role, content , provider):
-        if provider == CFG.GEMINI_PV:
-            return {
-                "role": "model" if role == "assistant" else "user",
-                "parts": [content]
-            }
-        elif provider == CFG.GROQ_PV or provider == CFG.HF_PV:
-            return {
-                "role": role,
-                "content": content
-            }
-        elif provider == CFG.COHERE_PV:
-            return {
-                "role": "CHATBOT" if role == "assistant" else "USER",
-                "message": content
-            }
-        else:
-            return {
-                "role": role,
-                "content": content
-            }
         
-    def get_messages(self, provider: str):
-        formatted_messages = []
+    def get_messages(self):
+        messages = []
+    
         for turn in self.sliding_window:
-            user_msg = self._format_message("user", turn.user_message, provider)
-            formatted_messages.append(user_msg)
+            messages.append({
+                "role": "user",
+                "content": turn.user_message
+            })
             
-            assistant_msg = self._format_message("assistant", turn.assistant_message, provider)
-            formatted_messages.append(assistant_msg)
-            
-        return formatted_messages
+            messages.append({
+                "role": "assistant",
+                "content": turn.assistant_message
+            })
+        
+        return messages
     
     def add_turn(self, user_msg: str, assistant_msg: str, metadata: dict):
         results = ConversationTurn(
@@ -63,7 +46,7 @@ class ContextManager:
             assistant_message= assistant_msg,
             provider= metadata.get('provider', 'unknown'),
             persona=metadata.get('persona', 'Default'),
-            timestamp= datetime.now(),
+            timestamp = datetime.now(),
             input_tokens=metadata.get('input_tokens', 0),
             output_tokens=metadata.get('output_tokens', 0),
             latency_ms=metadata.get('latency_ms', 0.0)
