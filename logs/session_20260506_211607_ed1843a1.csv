@@ -1,0 +1,5 @@
+timestamp,session_id,turn_id,provider,model,persona,input_tokens,output_tokens,total_tokens,latency,cost,text
+2026-05-06 21:17:10,ed1843a1,1,Gemini,models/gemini-flash-latest,PersonaType.EXPERT,363,80,443,55910.48109999974,0.000211,[THOUGHT] - The user is asking for the result of a basic addition: 1 + 1. - I need to perform the ca
+2026-05-06 21:22:20,ed1843a1,2,Groq,llama-3.3-70b-versatile,PersonaType.EXPERT,500,73,573,901.7654000017501,3.2e-05,[THOUGHT] - I have been asked to calculate the sum of 1 and 1. - This is a basic arithmetic operatio
+2026-05-06 21:22:46,ed1843a1,3,Groq,llama-3.3-70b-versatile,PersonaType.EXPERT,585,134,719,900.9091000007174,4.3e-05,"[THOUGHT] - The user has mentioned ""cohere"", which could refer to a language model or AI technology."
+2026-05-06 21:22:50,ed1843a1,4,Groq,llama-3.3-70b-versatile,PersonaType.EXPERT,729,82,811,1545.9682000000612,4.5e-05,"[THOUGHT] - The user has typed ""quit"", which likely indicates they want to stop the current interact"

@@ -1,0 +1,2 @@
+timestamp,session_id,turn_id,provider,model,persona,input_tokens,output_tokens,total_tokens,latency,cost,text
+2026-05-06 21:23:43,3d02c8ea,1,Cohere,command-r7b-12-2024,PersonaType.EXPERT,927.0,15.0,942.0,833.8106000010157,0.000486,[ANSWER] 1 + 1 = 2.
